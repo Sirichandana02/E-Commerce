@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Reviews{% endblock %}
+{% load static %}
+{% block content %}
+
+{% for feedback in feedback_list %}
+    <div class="container mt-4">
+        <div class="card col-md-7 mx-auto shadow-lg">
+            <br>
+
+            <strong class="mx-auto">User: {{ feedback.user }}</strong><br>
+            Product: {{ feedback.product }}<br>
+            Rating: {{ feedback.rating }}<br>
+            Comments: {{ feedback.comments }}<br>
+            Submitted on: {{ feedback.created_at }}
+            <br><br>
+        </div>
+    </div>
+{% empty %}
+    <p>No feedback available.</p>
+{% endfor %}
+
+{% endblock content %}

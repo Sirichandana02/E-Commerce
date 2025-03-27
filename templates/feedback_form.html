@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-9">
+    <div class="card col-md-6 mx-auto shadow-lg">
+        <br>
+        <h4>How u feel about our Products & services</h4>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary" style="border-radius: 10px; width: 25%;">Submit</button>
+        </form>
+        <br>
+    </div>
+</div>
+{% endblock content %}

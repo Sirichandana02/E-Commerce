@@ -1,0 +1,26 @@
+{% extends 'adminpages/adminbase.html' %}
+{% block title %}Mail Sending{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card col-md-5 mx-auto shadow-lg">
+        {% if messages %}
+            {% for i in messages %}
+                <div class="alert alert-{{i.tags}} alert-dismissble my-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-labels="close">&times;</a>
+                    {{i}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="card-body">
+            <h4>Mail Sending</h4>
+            <form method="post">
+                {% csrf_token %}
+                <input type="email" name="sn" placeholder="Enter Mail id" class="form-control">
+                <input type="text" name="sb" placeholder="Enter Subject" class="form-control">
+                <textarea class="form-control my-2" rows="3" placeholder="Enetr Message" name="msg"></textarea>
+                <input type="submit" value="Send a Mail" class="btn btn-block btn-outline-success">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
